@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: beanValidation
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Automatically updates schema based on entity classes
+    show-sql: true # Shows SQL statements in logs
+
+  #output:
+  #  ansi:
+  #    enabled: true
+  output:
+    ansi:
+      enabled: ALWAYS
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+server:
+  port: 9000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+  endpoint:
+    health:
+      show-details: always
