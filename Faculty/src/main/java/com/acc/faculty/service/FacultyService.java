@@ -18,26 +18,26 @@ public class FacultyService {
     @Autowired
     RestTemplate restTemplate;
 
-    private static final String BASE_URL="http://localhost:8080/student/";
+    private static final String BASE_URL = "http://localhost:8080/student/";
 
-    public ServiceResponseEntity<StudentResponse> postData(StudentRequest request){
+    public ServiceResponseEntity<StudentResponse> postData(StudentRequest request) {
 
-        return restTemplate.postForObject(BASE_URL+"add", request, ServiceResponseEntity.class);
+        return restTemplate.postForObject(BASE_URL + "add", request, ServiceResponseEntity.class);
     }
 
     public ServiceResponseEntity<StudentResponse> getStudentById(int id) {
         log.info("FacultyService :: calling resttemplate to fetch data");
-        System.out.println(restTemplate.getForObject(BASE_URL + "get/"+id, String.class, id));
-        return restTemplate.getForObject(BASE_URL + "get/"+id, ServiceResponseEntity.class, id);
+        System.out.println(restTemplate.getForObject(BASE_URL + "get/" + id, String.class, id));
+        return restTemplate.getForObject(BASE_URL + "get/" + id, ServiceResponseEntity.class, id);
     }
 
-    public ServiceResponseEntity<StudentResponse> getStudentByIdRequestParam(Integer studentId){
-        Map<String, Integer> map=new HashMap<>();
-        map.put("studentId",studentId);
-        return restTemplate.getForObject(BASE_URL+"getstudent", ServiceResponseEntity.class,map);
+    public ServiceResponseEntity<StudentResponse> getStudentByIdRequestParam(Integer studentId) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("studentId", studentId);
+        return restTemplate.getForObject(BASE_URL + "getstudent", ServiceResponseEntity.class, map);
     }
 
-    public ServiceResponseEntity<List<StudentResponse>> getAllStudents(){
-        return restTemplate.getForObject(BASE_URL+"getAll",ServiceResponseEntity.class);
+    public ServiceResponseEntity<List<StudentResponse>> getAllStudents() {
+        return restTemplate.getForObject(BASE_URL + "getAll", ServiceResponseEntity.class);
     }
 }
