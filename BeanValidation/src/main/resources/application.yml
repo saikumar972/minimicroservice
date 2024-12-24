@@ -1,18 +1,19 @@
 spring:
   application:
     name: beanValidation
-
-  h2:
-    console:
-      enabled: true
-
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/splunk
+    username: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update # Automatically updates schema based on entity classes
-    show-sql: true # Shows SQL statements in logs
+      ddl-auto: update
+    show-sql: true
+    properties:
+        # dialect: org.hibernate.dialect.MySQLDialect
+      format_sql: true
+
 
   #output:
   #  ansi:
